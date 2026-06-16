@@ -30,6 +30,7 @@ nav {
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border);
     display: flex;
+    justify-content: center;
     gap: 2rem;
     box-shadow: 0 2px 8px var(--shadow);
     position: sticky;
