@@ -136,15 +136,21 @@ iframe:hover {
     transform: scale(1.02);
 }
 
-/* Image Container for Side-by-Side Layout */
+/* Image Grid Container for 3x3 Layout */
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Image Container for 3x3 Grid Layout */
 main > img {
-    max-width: calc(20% - 0.6rem);
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
-    margin: 0.3rem;
-    display: inline-block;
     box-shadow: 0 4px 12px var(--shadow);
     transition: transform 0.3s ease;
+    grid-column: auto;
 }
 
 main > img:hover {
@@ -259,6 +265,7 @@ footer, p:last-child {
     border-top: 1px solid var(--border);
     color: var(--text-secondary);
     font-size: 0.95rem;
+    grid-column: 1 / -1;
 }
 
 /* Responsive Design */
@@ -288,19 +295,18 @@ footer, p:last-child {
 
     main {
         padding: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     }
 
     video, iframe {
         width: 100% !important;
         height: auto !important;
-    }
-
-    main > img {
-        max-width: calc(50% - 0.3rem);
+        grid-column: 1 / -1;
     }
 
     table {
         font-size: 0.9rem;
+        grid-column: 1 / -1;
     }
 
     table th, table td {
@@ -328,8 +334,8 @@ footer, p:last-child {
         text-align: center;
     }
 
-    main > img {
-        max-width: 100%;
+    main {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
 
