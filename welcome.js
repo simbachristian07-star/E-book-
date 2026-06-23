@@ -1,10 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+const welcome = document.createElement("div");
 
-    alert(
-        "WELCOME!\n\n" +
-        "Welcome to our ePub website.\n\n" +
-        "The largest library you will ever need at the click of a button."
-    );
+welcome.innerHTML = `
+<div id="welcomeOverlay">
+    <div id="welcomeBox">
+        <h1>WELCOME!</h1>
+        <p>Welcome to our ePub website.</p>
+        <p>The largest library you will ever need at the click of a button.</p>
+        <button id="okBtn">OK</button>
+    </div>
+</div>
+`;
+
+document.body.appendChild(welcome);
+
+document.getElementById("okBtn").addEventListener("click", function () {
+    document.getElementById("welcomeOverlay").remove();
+});
 
     const formHTML = `
     <div id="overlay">
