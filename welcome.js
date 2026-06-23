@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <input type="text" id="email" placeholder="Email">
             <br><br>
 
-            <input type="text" id="phone" placeholder="+2547XXXXXXXX">
+            <input type="text" id="phone" placeholder="07XXXXXXXX">
             <br><br>
 
             <select id="gender">
@@ -84,11 +84,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Phone validation
-            const phoneRegex = /^\+2547\d{8}$/;
+            const phoneRegex = /^07\d{8}$/;
 
             if (!phoneRegex.test(phone)) {
                 error.textContent =
-                    "Phone number must be +2547XXXXXXXX";
+                    "Phone number must be 07XXXXXXXX";
                 return;
             }
 
