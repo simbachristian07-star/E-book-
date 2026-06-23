@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // Welcome popup
-    alert("Welcome!");
+    alert(
+    "WELCOME!\n\n" +
+    "Welcome to our ePub website.\n\n" +
+    "Explore thousands of titles from the largest library you will ever need, all at the touch of your screen."
+);
 
     // Create form popup
     const formHTML = `
