@@ -1,43 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Welcome popup
     alert(
-    "WELCOME!\n\n" +
-    "Welcome to our ePub website.\n\n" +
-    "Explore thousands of titles from the largest library you will ever need, all at the touch of your screen."
-);
+        "WELCOME!\n\n" +
+        "Welcome to our ePub website.\n\n" +
+        "The largest library you will ever need at the click of a button."
+    );
 
-    // Create form popup
     const formHTML = `
-    <div id="overlay" style="
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background:rgba(0,0,0,0.5);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        z-index:9999;">
+    <div id="overlay">
+        <div id="popup">
 
-        <div style="
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            width:350px;
-            text-align:center;">
-
-            <h2>User Information</h2>
+            <h2>Welcome</h2>
 
             <input type="text" id="name" placeholder="Full Name">
-            <br><br>
-
             <input type="text" id="email" placeholder="Email">
-            <br><br>
-
-            <input type="text" id="phone" placeholder="07XXXXXXXX">
-            <br><br>
+            <input type="text" id="phone" placeholder="+2547XXXXXXXX">
 
             <select id="gender">
                 <option value="">Select Gender</option>
@@ -46,11 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 <option>Other</option>
                 <option>Rather Not Say</option>
             </select>
-            <br><br>
 
-            <button id="submitBtn">Submit</button>
+            <button id="submitBtn">Enter Library</button>
 
-            <p id="error" style="color:red;"></p>
+            <p id="error"></p>
 
         </div>
     </div>
@@ -58,56 +34,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.insertAdjacentHTML("beforeend", formHTML);
 
-    document
-        .getElementById("submitBtn")
-        .addEventListener("click", function () {
+    document.getElementById("submitBtn").addEventListener("click", function () {
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const gender = document.getElementById("gender").value;
-            const error = document.getElementById("error");
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const gender = document.getElementById("gender").value;
+        const error = document.getElementById("error");
 
-            error.textContent = "";
+        error.textContent = "";
 
-            // Name validation
-            if (name.split(/\s+/).length < 2) {
-                error.textContent =
-                    "Please enter at least two names.";
-                return;
-            }
+        if (name.split(/\s+/).length < 2) {
+            error.textContent = "Enter at least two names.";
+            return;
+        }
 
-            // Email validation
-            const emailRegex =
-                /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/i;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com)$/i;
+        if (!emailRegex.test(email)) {
+            error.textContent = "Invalid email domain.";
+            return;
+        }
 
-            if (!emailRegex.test(email)) {
-                error.textContent =
-                    "Email must be @gmail.com, @yahoo.com, or @outlook.com";
-                return;
-            }
+        const phoneRegex = /^\+2547\d{8}$/;
+        if (!phoneRegex.test(phone)) {
+            error.textContent = "Invalid Kenyan number format.";
+            return;
+        }
 
-            // Phone validation
-            const phoneRegex = /^07\d{8}$/;
+        if (!["Male", "Female", "Other", "Rather Not Say"].includes(gender)) {
+            error.textContent = "Select a valid gender.";
+            return;
+        }
 
-            if (!phoneRegex.test(phone)) {
-                error.textContent =
-                    "Phone number must be 07XXXXXXXX";
-                return;
-            }
-
-            // Gender validation
-            if (
-                !["Male", "Female", "Other", "Rather Not Say"]
-                    .includes(gender)
-            ) {
-                error.textContent =
-                    "Please select a gender.";
-                return;
-            }
-
-            alert("Welcome, " + name + "!");
-
-            document.getElementById("overlay").remove();
-        });
+        alert("Welcome " + name + "!");
+        document.getElementById("overlay").remove();
+    });
 });
