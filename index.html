@@ -4,10 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Books Website</title>
-    <link rel="stylesheet" href= "style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="welcome.js"></script>
+
+    <!-- Welcome pop-up / sign-in modal -->
+    <div id="welcome-overlay" class="overlay">
+        <div class="modal">
+            <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+            <p class="modal-eyebrow">Ebook.com</p>
+            <h2 class="modal-title">Welcome!</h2>
+            <p class="modal-subtitle">Sign in to start building your pocket library.</p>
+
+            <form id="signin-form" action="signin_process.php" method="POST" novalidate>
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Jane Doe" required>
+                <span class="error-message" id="fullname-error"></span>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="jane.doe@gmail.com" required>
+                <span class="error-message" id="email-error"></span>
+
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="0712345678" required>
+                <span class="error-message" id="phone-error"></span>
+
+                <fieldset class="gender-fieldset">
+                    <legend>Gender</legend>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="rather-not-say"> Rather not say
+                    </label>
+                </fieldset>
+                <span class="error-message" id="gender-error"></span>
+
+                <button type="submit" class="btn-primary">Sign in</button>
+                <p id="form-success" class="form-success"></p>
+            </form>
+        </div>
+    </div>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -20,7 +61,7 @@
         <h2>A portable library of different genres</h2>
         <hr>
         
-        <p>This is a portable library for promoting literature exposure,<br> encouraging literature media, and<br>supporting small time authors, tired of endlessly going through countless books ju[...]</p>
+        <p>This is a portable library for promoting literature exposure,<br> encouraging literature media, and<br>supporting small time authors, tired of endlessly going through countless books just to find the right one.</p>
         
         <video width="600" controls>
             <source src="tired.mp4" type="video/mp4">
@@ -30,7 +71,6 @@
         
         <iframe width="600" height="300" src="https://www.youtube.com/embed/m-p-7oIGC_0">
         </iframe>
-
         <p>Our site has a wide variety of books from all genres from non fiction to fiction to niche genres like culturally relevant short stories.</p>
         
         <audio controls>
@@ -88,7 +128,7 @@
                 width="250">
         </div>
         
-        <p>Our organisation aims to deliver quality digital formatted books <br>all prices set by the authors or publishers and regulated to make them affordable while supporting the literary work[...]</p>
+        <p>Our organisation aims to deliver quality digital formatted books <br>all prices set by the authors or publishers and regulated to make them affordable while supporting the literary works.</p>
         
         <table border="1">   
             <caption>
@@ -121,5 +161,7 @@
             Copyright &copy; 2026
         </p>
     </main>
+
+    <script src="welcome.js"></script>
 </body>
 </html>
