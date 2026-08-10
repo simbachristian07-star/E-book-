@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Books Website</title>
     
-    <script src="https://jsdelivr.net"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -133,40 +134,73 @@
         </p>
 
         <div class="signin-section">
-            <h2>Sign In</h2>
-            <p>Create an account to start your library.</p>
+    <h2>Sign In</h2>
+    <p>Create an account to start your library.</p>
 
-            <form id="signin-form" novalidate>
-                <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Jane Doe" required>
-                <span class="error-message" id="fullname-error"></span>
+    <form id="signin-form">
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="jane.doe@gmail.com" required>
-                <span class="error-message" id="email-error"></span>
+        <label for="fullname">Full name</label>
+        <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Jane Doe"
+            autocomplete="name"
+            required
+        >
+        <span class="error-message" id="fullname-error"></span>
 
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone" placeholder="0712345678" required>
-                <span class="error-message" id="phone-error"></span>
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="jane.doe@gmail.com"
+            autocomplete="email"
+            required
+        >
+        <span class="error-message" id="email-error"></span>
 
-                <fieldset class="gender-fieldset">
-                    <legend>Gender</legend>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="male" required> Male
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="female"> Female
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="rather-not-say"> Rather not say
-                    </label>
-                </fieldset>
-                <span class="error-message" id="gender-error"></span>
+        <label for="phone">Phone number</label>
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="0712345678"
+            autocomplete="tel"
+            required
+        >
+        <span class="error-message" id="phone-error"></span>
 
-                <button type="submit" class="btn-primary">Sign in</button>
-                <p id="form-success" class="form-success"></p>
-            </form>
-        </div>
+        <fieldset class="gender-fieldset">
+            <legend>Gender</legend>
+
+            <label class="radio-label">
+                <input type="radio" name="gender" value="male">
+                Male
+            </label>
+
+            <label class="radio-label">
+                <input type="radio" name="gender" value="female">
+                Female
+            </label>
+
+            <label class="radio-label">
+                <input type="radio" name="gender" value="rather-not-say">
+                Rather not say
+            </label>
+        </fieldset>
+
+        <span class="error-message" id="gender-error"></span>
+
+        <button type="submit" class="btn-primary">
+            Sign in
+        </button>
+
+        <p id="form-success" class="form-success"></p>
+
+    </form>
+</div>
     </main>
 
     <script src="welcome.js"></script>
