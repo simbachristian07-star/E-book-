@@ -3,21 +3,29 @@
 window.onload = function () {
 
     var overlay = document.getElementById("welcome-overlay");
-    var closeBtn = document.getElementById("modal-close");
+    var enterBtn = document.getElementById("modal-enter");
     var form = document.getElementById("signin-form");
     var successMsg = document.getElementById("form-success");
 
     // show the pop-up when the page loads
     overlay.className = "overlay visible";
 
-    // close button hides the pop-up
-    closeBtn.onclick = function () {
+    // Enter button hides the pop-up
+    enterBtn.onclick = function () {
         overlay.className = "overlay";
     };
 
-    // check the form when the user clicks "Sign in"
+    // check if we just came back from signin_process.php
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("signup") === "success") {
+        alert("You are signed in! Your details were saved.");
+    }
+    if (params.get("signup") === "error") {
+        alert("There was a problem: " + params.get("msg"));
+    }
+
+    // check the form before it is sent to signin_process.php
     form.onsubmit = function (event) {
-        event.preventDefault();
 
         var isValid = true;
 
@@ -66,11 +74,11 @@ window.onload = function () {
             document.getElementById("gender-error").innerHTML = "";
         }
 
-        // if everything is correct, show a success message
-        if (isValid === true) {
-            successMsg.innerHTML = "Welcome, " + fullname + "! You are signed in.";
-            form.reset();
+
+        if (isValid === false) {
+            event.preventDefault();
         }
+
     };
 
 };
