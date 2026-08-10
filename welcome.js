@@ -86,7 +86,7 @@ window.onload = function () {
                 .from("users")
                 .insert([
                     {
-                        fullname: fullname,
+                        full_name: fullname,
                         email: email,
                         phone: phone,
                         gender: chosenGenderValue
