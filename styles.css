@@ -1,3 +1,5 @@
+/* styles.css - Ebook.com */
+
 body {
     background-color: #faf7f2;
     color: #333333;
@@ -142,32 +144,33 @@ tr:hover {
 .modal {
     background-color: #ffffff;
     width: 300px;
-    margin: 80px auto;
-    padding: 25px;
+    margin: 120px auto;
+    padding: 30px 25px;
     border-radius: 8px;
     border-top: 5px solid #c9a227;
     position: relative;
-}
-
-.modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #555555;
+    text-align: center;
 }
 
 .modal-title {
     color: #1f4b43;
     margin-top: 0;
+    font-size: 32px;
 }
 
 .modal-subtitle {
     color: #555555;
     font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.signin-section {
+    background-color: #ffffff;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 5px solid #c9a227;
 }
 
 #signin-form label {
