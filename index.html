@@ -8,44 +8,13 @@
 </head>
 <body>
 
-    <!-- Welcome pop-up / sign-in modal -->
+    <!-- Welcome pop-up -->
     <div id="welcome-overlay" class="overlay">
         <div class="modal">
-            <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
             <p class="modal-eyebrow">Ebook.com</p>
             <h2 class="modal-title">Welcome!</h2>
-            <p class="modal-subtitle">Sign in to start building your pocket library.</p>
-
-            <form id="signin-form" action="signin_process.php" method="POST" novalidate>
-                <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Jane Doe" required>
-                <span class="error-message" id="fullname-error"></span>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="jane.doe@gmail.com" required>
-                <span class="error-message" id="email-error"></span>
-
-                <label for="phone">Phone number</label>
-                <input type="tel" id="phone" name="phone" placeholder="0712345678" required>
-                <span class="error-message" id="phone-error"></span>
-
-                <fieldset class="gender-fieldset">
-                    <legend>Gender</legend>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="male" required> Male
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="female"> Female
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="gender" value="rather-not-say"> Rather not say
-                    </label>
-                </fieldset>
-                <span class="error-message" id="gender-error"></span>
-
-                <button type="submit" class="btn-primary">Sign in</button>
-                <p id="form-success" class="form-success"></p>
-            </form>
+            <p class="modal-subtitle">Your pocket library of every genre.</p>
+            <button id="modal-enter" class="btn-primary">Enter</button>
         </div>
     </div>
 
@@ -160,6 +129,42 @@
         <p>
             Copyright &copy; 2026
         </p>
+
+        <div class="signin-section">
+            <h2>Sign In</h2>
+            <p>Create an account to start your library.</p>
+
+            <form id="signin-form" action="signin_process.php" method="POST" novalidate>
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Jane Doe" required>
+                <span class="error-message" id="fullname-error"></span>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="jane.doe@gmail.com" required>
+                <span class="error-message" id="email-error"></span>
+
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="0712345678" required>
+                <span class="error-message" id="phone-error"></span>
+
+                <fieldset class="gender-fieldset">
+                    <legend>Gender</legend>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="female"> Female
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="rather-not-say"> Rather not say
+                    </label>
+                </fieldset>
+                <span class="error-message" id="gender-error"></span>
+
+                <button type="submit" class="btn-primary">Sign in</button>
+                <p id="form-success" class="form-success"></p>
+            </form>
+        </div>
     </main>
 
     <script src="welcome.js"></script>
